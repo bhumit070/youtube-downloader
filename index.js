@@ -51,4 +51,5 @@ app.post('/url', (req, res) => {
       });
     });
 });
-app.listen(5000);
+const port = process.env.PORT || 8080;
+app.listen(port);

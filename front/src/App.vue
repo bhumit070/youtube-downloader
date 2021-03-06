@@ -66,7 +66,7 @@ export default {
       this.error = false;
       try {
         this.loading = true;
-        const api = 'http://localhost:5000/url';
+        const api = 'url';
         const payload = { url: this.url };
         const { data } = await axios.post(api, payload);
         if (data.error) {
