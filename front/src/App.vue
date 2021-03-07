@@ -20,7 +20,7 @@
         <div v-if="success">
           <b-container>
             <div class="text-center">
-              <img :src="videoThumbnail" height="200px" width="400px" /> <br />
+              <img :src="videoThumbnail" /> <br />
               <label class="mt-3"> {{ videoTitle }} </label>
               <div :key="index" v-for="(link, index) in videoLinks">
                 <a :href="link.url" :download="`${videoTitle}.mp4`">
@@ -66,7 +66,7 @@ export default {
       this.error = false;
       try {
         this.loading = true;
-        const api = 'url';
+        const api = 'https://shielded-oasis-61722.herokuapp.com/url';
         const payload = { url: this.url };
         const { data } = await axios.post(api, payload);
         if (data.error) {
@@ -89,3 +89,17 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+img {
+  height: 200px;
+  width: 350px;
+}
+
+@media screen and (max-width: 600px) {
+  img {
+    height: 200px;
+    width: 300px;
+  }
+}
+</style>
